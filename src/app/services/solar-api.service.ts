@@ -9,6 +9,7 @@ import { APIResponse } from '../interfaces/api-response';
 export class SolarAPIService {
 
   private _siteURL="https://www.eu.solaxcloud.com:9443/proxy/api/getRealtimeInfo.do?tokenId=20210919215139742116264&sn=SWFPABQDFS"
+  //private _siteURL="/api"
   constructor(private _http:HttpClient) { }
 
   getSolarData():Observable<APIResponse>{
