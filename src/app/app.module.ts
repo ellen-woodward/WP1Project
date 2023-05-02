@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SolarAPIService } from './services/solar-api.service';
+import { MealAPIService } from './services/meal-api.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { SolarAPIService } from './services/solar-api.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [SolarAPIService],
+  providers: [MealAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

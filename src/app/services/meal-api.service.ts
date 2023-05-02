@@ -6,22 +6,22 @@ import { APIResponse } from '../interfaces/api-response';
 @Injectable({
   providedIn: 'root'
 })
-export class SolarAPIService {
+export class MealAPIService {
 
-  private _siteURL="https://www.eu.solaxcloud.com:9443/proxy/api/getRealtimeInfo.do?tokenId=20210919215139742116264&sn=SWFPABQDFS"
+  private _siteURL="https://www.themealdb.com/api/json/v1/1/search.php?s="
   //private _siteURL="/api"
   constructor(private _http:HttpClient) { }
 
-  getSolarData():Observable<APIResponse>{
+  getMealData():Observable<APIResponse>{
     return this._http.get<APIResponse>(this._siteURL)
     .pipe(
-      tap(data => console.log('SolarData/error' + JSON.stringify(data))
+      tap(data => console.log('MealData/error' + JSON.stringify(data))
       ),
       catchError(this.handleError)
     )
   }
   private handleError(err:HttpErrorResponse){
-    console.log('SolarAPIService: '+ err.message);
-    return throwError(() => new Error('SolarAPIService: '+ err.message))
+    console.log('MealAPIService: '+ err.message);
+    return throwError(() => new Error('MealAPIService: '+ err.message))
   }
 }

@@ -1,8 +1,0 @@
-{
-    "/api":{
-        "target":"https://www.eu.solaxcloud.com:9443/proxy/api/getRealtimeInfo.do?tokenId=20210919215139742116264&sn=SWFPABQDFS",
-        "secure":true,
-        "changeOrigin":true,
-        "logLevel":"debug"
-    }
-}

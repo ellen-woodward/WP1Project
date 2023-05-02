@@ -1,3 +1,15 @@
 <h1>The beginning!!</h1>
 
-<button (click)="getSolarData()" type="submit">Click</button>
+<button (click)="getMealData()" type="submit">Click</button>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col"  *ngFor="let meal of mealData.meals">
+      <div class="card mt-3">
+        <img src="{{meal.strMealThumb}}" class="card-img-top img-fluid">
+        <div class="card-body">
+          <h5 class="card-title">{{meal.strMeal}}</h5>
+          <p class="card-text">{{meal.strCategory}}</p>
+          <p class="card-text">{{meal.strArea}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
