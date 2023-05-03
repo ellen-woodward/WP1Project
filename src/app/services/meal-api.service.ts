@@ -12,8 +12,8 @@ export class MealAPIService {
   //private _siteURL="/api"
   constructor(private _http:HttpClient) { }
 
-  getMealData():Observable<APIResponse>{
-    return this._http.get<APIResponse>(this._siteURL)
+  getMealData(meal:string):Observable<APIResponse>{
+    return this._http.get<APIResponse>(this._siteURL + meal)
     .pipe(
       tap(data => console.log('MealData/error' + JSON.stringify(data))
       ),

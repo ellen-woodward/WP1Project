@@ -9,19 +9,19 @@ import { MealAPIService } from './services/meal-api.service';
 })
 export class AppComponent {
   title = 'WP1Project';
-  mealData!:APIResponse;
-  errMessage:any;
+  // mealData!:APIResponse;
+  // errMessage:any;
   
-  constructor(private _mealAPIService:MealAPIService){}
+  // constructor(private _mealAPIService:MealAPIService){}
 
-  getMealData():boolean{
-    this._mealAPIService.getMealData().subscribe(
-      mealData => {
-        this.mealData=mealData;
-        //console.log("Piece of info: " + this.mealData);
-      }
-    )
-    return false;
-  }
+  // getMealData():boolean{
+  //   this._mealAPIService.getMealData().subscribe(
+  //     mealData => {
+  //       this.mealData=mealData;
+  //       //console.log("Piece of info: " + this.mealData);
+  //     }
+  //   )
+  //   return false;
+  // }
 }
 
