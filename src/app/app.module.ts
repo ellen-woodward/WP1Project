@@ -8,6 +8,14 @@ import { SearchComponent } from './components/search/search.component';
 import { CookbookComponent } from './components/cookbook/cookbook.component';
 import { AboutComponent } from './components/about/about.component';
 
+import { RouterModule, Routes } from '@angular/router';
+
+const routes:Routes=[
+  { path:'', component:SearchComponent},
+  { path:'about', component:AboutComponent},
+  { path:'cookbook', component:CookbookComponent}
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +25,8 @@ import { AboutComponent } from './components/about/about.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [MealAPIService],
   bootstrap: [AppComponent]

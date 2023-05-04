@@ -9,7 +9,7 @@ import { APIResponse } from '../interfaces/api-response';
 export class MealAPIService {
 
   private _siteURL="https://www.themealdb.com/api/json/v1/1/search.php?s="
-  //private _siteURL="/api"
+  
   constructor(private _http:HttpClient) { }
 
   getMealData(meal:string):Observable<APIResponse>{
