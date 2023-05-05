@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { APIResponse } from 'src/app/interfaces/api-response';
+import { APIResponse, CookbookItem, IMeal } from 'src/app/interfaces/api-response';
 import { MealAPIService } from 'src/app/services/meal-api.service';
 
 @Component({
@@ -20,6 +20,15 @@ export class SearchComponent {
         //console.log("Piece of info: " + this.mealData);
       }
     )
+    return false;
+  }
+
+  addMeal(strMeal:string, strCategory:string, strArea:string, strMealThumb:string):boolean {
+    let addMeal:IMeal;
+    addMeal=new CookbookItem(strMeal,strCategory,strArea,strMealThumb);
+    this._mealAPIService.addCarDetails(addMeal).subscribe(mealData =>
+      { this.mealData = mealData}
+    );
     return false;
   }
 }

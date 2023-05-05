@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { APIResponse } from '../interfaces/api-response';
+import { APIResponse, IMeal } from '../interfaces/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,16 @@ export class MealAPIService {
     catchError(this.handleError)
     );
   }
+
+
+  addCarDetails(meal:IMeal):Observable<any> {
+    return this._http.post<IMeal>(this._databaseURL, meal)
+    .pipe(
+     tap(data => console.log('add meal message/error' + JSON.stringify(data))
+     ),
+     catchError(this.handleError)
+     );
+    }
 
   private handleError(err:HttpErrorResponse){
     console.log('MealAPIService: '+ err.message);
