@@ -9,7 +9,8 @@ import { APIResponse } from '../interfaces/api-response';
 export class MealAPIService {
 
   private _siteURL="https://www.themealdb.com/api/json/v1/1/search.php?s="
-  
+  private _databaseURL="http://localhost:5050/meals"
+
   constructor(private _http:HttpClient) { }
 
   getMealData(meal:string):Observable<APIResponse>{
@@ -20,6 +21,16 @@ export class MealAPIService {
       catchError(this.handleError)
     )
   }
+
+  getCookbookData():Observable<any> {
+    return this._http.get<APIResponse>(this._databaseURL)
+    .pipe(
+      tap(data => console.log('cookbook data/error' + JSON.stringify(data))
+    ),
+    catchError(this.handleError)
+    );
+  }
+
   private handleError(err:HttpErrorResponse){
     console.log('MealAPIService: '+ err.message);
     return throwError(() => new Error('MealAPIService: '+ err.message))
