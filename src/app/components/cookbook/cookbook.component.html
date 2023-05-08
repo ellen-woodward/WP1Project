@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     <div class="col"  *ngFor="let meal of mealData">
       <div class="card mt-3">
@@ -5,8 +6,9 @@
         <div class="card-body">
           <h4 class="card-title">{{meal.strMeal}}</h4>
           <p class="card-text">{{meal.strArea}}</p>
+          <button class="btn btn-primary">See Instructions</button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
