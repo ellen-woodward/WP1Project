@@ -9,6 +9,9 @@ import { CookbookComponent } from './components/cookbook/cookbook.component';
 import { AboutComponent } from './components/about/about.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CommonModule } from '@angular/common';
 
 const routes:Routes=[
   { path:'', component:SearchComponent},
@@ -24,9 +27,11 @@ const routes:Routes=[
     AboutComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [MealAPIService],
   bootstrap: [AppComponent]

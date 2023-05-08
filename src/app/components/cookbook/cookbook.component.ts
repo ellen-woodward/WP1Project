@@ -15,7 +15,7 @@ export class CookbookComponent implements OnInit{
   constructor(private _mealAPIService:MealAPIService){}
 
   ngOnInit() {
-    this.getMeals()
+    this.getMeals();
   }
 
   getMeals(){
