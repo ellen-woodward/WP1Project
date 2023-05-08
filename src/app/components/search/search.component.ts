@@ -26,7 +26,7 @@ export class SearchComponent {
   addMeal(strMeal:string, strCategory:string, strArea:string, strMealThumb:string):boolean {
     let addMeal:IMeal;
     addMeal=new CookbookItem(strMeal,strCategory,strArea,strMealThumb);
-    this._mealAPIService.addCarDetails(addMeal).subscribe(mealData =>
+    this._mealAPIService.addMealDetails(addMeal).subscribe(mealData =>
       { this.mealData = mealData}
     );
     return false;

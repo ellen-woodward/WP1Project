@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IMeal } from 'src/app/interfaces/api-response';
 import { MealAPIService } from 'src/app/services/meal-api.service';
 import { OnInit } from '@angular/core';
@@ -9,7 +9,9 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./cookbook.component.css']
 })
 export class CookbookComponent implements OnInit{
+  @Output() mealDeletedEvent = new EventEmitter<string>()
 
+  @Input()
   mealData : IMeal | any;
 
   constructor(private _mealAPIService:MealAPIService){}
@@ -24,4 +26,11 @@ export class CookbookComponent implements OnInit{
     });
   }
 
+  deleteMeal(mealID:string) { 
+    this._mealAPIService.delMealDetails(mealID).subscribe(result =>
+      { 
+        console.log(result);
+      });
+      this.mealDeletedEvent.emit("Car got deleted");
+  }
 }
