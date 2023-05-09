@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { APIResponse, CookbookItem, IMeal } from 'src/app/interfaces/api-response';
 import { MealAPIService } from 'src/app/services/meal-api.service';
 
@@ -7,11 +7,15 @@ import { MealAPIService } from 'src/app/services/meal-api.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit{
   mealData!:APIResponse;
   errMessage:any;
   
   constructor(private _mealAPIService:MealAPIService){}
+
+  ngOnInit(): void {
+    this.getMealData("");
+  }
 
   getMealData(meal:string):boolean{
     this._mealAPIService.getMealData(meal).subscribe(
@@ -22,12 +26,13 @@ export class SearchComponent {
     return false;
   }
 
-  addMeal(strMeal:string, strCategory:string, strArea:string, strMealThumb:string):boolean {
+  addMeal(strMeal:string, strCategory:string, strArea:string, strMealThumb:string, searchMeal:string) {
     let addMeal:IMeal;
     addMeal=new CookbookItem(strMeal,strCategory,strArea,strMealThumb);
     this._mealAPIService.addMealDetails(addMeal).subscribe(mealData =>
       { this.mealData = mealData}
     );
-    return false;
+    //this.ngOnInit();
+    //this.getMealData(searchMeal);
   }
 }

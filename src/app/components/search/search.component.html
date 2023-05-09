@@ -6,8 +6,8 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <form class="d-flex">
-          <input class="form-control me-2" type="search" #meal  placeholder="Enter meal" aria-label="Find meal">
-          <button (click)="getMealData(meal.value)" class="btn btn-outline-success" type="submit" >Search</button>
+          <input class="form-control me-2" type="search" #searchMeal  placeholder="Enter meal" aria-label="Find meal">
+          <button (click)="getMealData(searchMeal.value)" class="btn btn-outline-success" type="submit" >Search</button>
         </form>
       </div>
     </nav>  
@@ -17,7 +17,8 @@
       <li class="page-item"><a class="page-link" href="#">Page {{this.currentPage}} ({{movieData.totalResults}} results)</a></li>
       <li class="page-item"><a class="page-link" href="#" (click)="getNextPage(moviename.value)">Next</a></li>
     </ul> -->
-  
+    <br>
+    <h3 *ngIf="mealData.meals == null">Nothing matches your search. Please try again!</h3>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         <div class="col"  *ngFor="let meal of mealData.meals">
           <div class="card mt-3">
@@ -26,10 +27,9 @@
               <h4 class="card-title">{{meal.strMeal}}</h4>
               <p class="card-text">{{meal.strArea}}</p>
               <button class="btn btn-primary" type="submit" (click)="addMeal(meal.strMeal, 
-                  meal.strCategory, meal.strArea, meal.strMealThumb)">Add to Cookbook</button>
+                  meal.strCategory, meal.strArea, meal.strMealThumb, searchMeal.value)">Add to Cookbook</button>
             </div>
           </div>
         </div>
       </div>
-  
 </div>

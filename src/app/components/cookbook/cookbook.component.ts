@@ -32,6 +32,5 @@ export class CookbookComponent implements OnInit{
         console.log(result);
       });
       this.mealDeletedEvent.emit("Meal got deleted");
-      this.ngOnInit();
   }
 }
