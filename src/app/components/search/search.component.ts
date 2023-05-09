@@ -17,7 +17,6 @@ export class SearchComponent {
     this._mealAPIService.getMealData(meal).subscribe(
       mealData => {
         this.mealData=mealData;
-        //console.log("Piece of info: " + this.mealData);
       }
     )
     return false;

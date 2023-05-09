@@ -9,7 +9,7 @@ import { APIResponse, IMeal } from '../interfaces/api-response';
 export class MealAPIService {
 
   private _siteURL="https://www.themealdb.com/api/json/v1/1/search.php?s="
-  private _databaseURL="http://52.209.177.1/meals"
+  private _databaseURL="http://34.254.233.34/meals"
 
   constructor(private _http:HttpClient) { }
 
@@ -31,7 +31,6 @@ export class MealAPIService {
     );
   }
 
-
   addMealDetails(meal:IMeal):Observable<any> {
     return this._http.post<IMeal>(this._databaseURL, meal)
     .pipe(
@@ -41,16 +40,15 @@ export class MealAPIService {
      );
     }
 
-    delMealDetails(mealID:string):Observable<any> {
-      let deleteURL=this._databaseURL+"/:"+mealID;
-      return this._http.delete(deleteURL)
-      .pipe(
-        tap(data => console.log('del meal message/error' + JSON.stringify(data))
-      ),
-      catchError(this.handleError)
-      );
-   
-    }
+  deleteMealDetails(mealID:string):Observable<any> {
+    let deleteURL=this._databaseURL+"/:"+mealID;
+    return this._http.delete(deleteURL)
+    .pipe(
+      tap(data => console.log('del meal message/error' + JSON.stringify(data))
+    ),
+    catchError(this.handleError)
+    );
+  }
 
   private handleError(err:HttpErrorResponse){
     console.log('MealAPIService: '+ err.message);

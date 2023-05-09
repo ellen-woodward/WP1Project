@@ -27,10 +27,10 @@ export class CookbookComponent implements OnInit{
   }
 
   deleteMeal(mealID:string) { 
-    this._mealAPIService.delMealDetails(mealID).subscribe(result =>
+    this._mealAPIService.deleteMealDetails(mealID).subscribe(result =>
       { 
         console.log(result);
       });
-      this.mealDeletedEvent.emit("Car got deleted");
+      this.mealDeletedEvent.emit("Meal got deleted");
   }
 }

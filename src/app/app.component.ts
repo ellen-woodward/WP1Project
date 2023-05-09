@@ -1,23 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { APIResponse } from './interfaces/api-response';
-import { MealAPIService } from './services/meal-api.service';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'WP1Project';
-
-  constructor() { }
-
-  isShowDivIf = true;
-  toggleDisplayDivIf() {
-    this.isShowDivIf = !this.isShowDivIf;
-  }
-  
-  ngOnInit(): void {}
 }
 
