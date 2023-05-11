@@ -11,25 +11,20 @@
         </form>
       </div>
     </nav>  
-  
-    <!-- <ul class="pagination" *ngIf="this.movieData.totalResults > 10">
-      <li class="page-item"><a class="page-link" href="#" (click)="getPreviousPage(moviename.value)">Previous</a></li>     
-      <li class="page-item"><a class="page-link" href="#">Page {{this.currentPage}} ({{movieData.totalResults}} results)</a></li>
-      <li class="page-item"><a class="page-link" href="#" (click)="getNextPage(moviename.value)">Next</a></li>
-    </ul> -->
+
     <br>
     <h3 *ngIf="mealData.meals == null">Nothing matches your search. Please try again!</h3>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         <div class="col"  *ngFor="let meal of mealData.meals">
           <div class="card mt-3">
             <img src="{{meal.strMealThumb}}" class="card-img-top img-fluid">
-            <div class="card-body">
+            <div style="text-align:center" class="card-body">
               <h4 class="card-title">{{meal.strMeal}}</h4>
-              <p class="card-text">{{meal.strArea}}</p>
-              <button class="btn btn-primary" type="submit" (click)="addMeal(meal.strMeal, 
-                  meal.strCategory, meal.strArea, meal.strMealThumb, searchMeal.value)">Add to Cookbook</button>
+              <button class="btn btn-light" type="submit" (click)="addMeal(meal.strMeal, 
+                  meal.strCategory, meal.strArea, meal.strMealThumb, meal.strTags, meal.strYoutube, meal.strSource)">Add to Cookbook</button>
             </div>
-          </div>
+          </div>        
         </div>
-      </div>
+      </div> 
 </div>
+
