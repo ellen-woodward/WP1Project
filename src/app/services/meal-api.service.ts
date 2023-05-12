@@ -9,7 +9,7 @@ import { APIResponse, IMeal } from '../interfaces/api-response';
 export class MealAPIService {
 
   private _siteURL="https://www.themealdb.com/api/json/v1/1/search.php?s="
-  private _databaseURL="http://34.254.233.34/meals"
+  private _databaseURL="http://34.243.122.101/meals"
 
   constructor(private _http:HttpClient) { }
 

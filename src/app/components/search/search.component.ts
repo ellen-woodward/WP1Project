@@ -33,10 +33,11 @@ export class SearchComponent implements OnInit{
     let addMeal:IMeal;
     addMeal=new CookbookItem(strMeal,strCategory,strArea,strMealThumb,strTags,strYoutube,strSource);
     this._mealAPIService.addMealDetails(addMeal).subscribe(mealData =>
-      { this.mealData = mealData}
+      { this.mealData = mealData;
+        this.clearInput();
+        this.getMealData("");
+      }
     );
-    this.clearInput();
-    this.getMealData("");
     return false;
   }
 

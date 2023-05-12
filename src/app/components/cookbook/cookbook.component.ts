@@ -30,6 +30,7 @@ export class CookbookComponent implements OnInit{
     this._mealAPIService.deleteMealDetails(mealID).subscribe(result =>
       { 
         console.log(result);
+        this.getMeals();
       });
       this.mealDeletedEvent.emit("Meal got deleted");
   }
