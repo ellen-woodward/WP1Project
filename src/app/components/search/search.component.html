@@ -1,29 +1,29 @@
-
 <div class="container">
-    <br>
-    <h1>Search for a meal by title!</h1>
-  
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" #searchMeal  placeholder="Enter meal" aria-label="Find meal">
-          <button (click)="getMealData(searchMeal.value)" class="search-button" type="submit" ><span>Search </span></button>
-        </form>
-      </div>
-    </nav>  
-    <br>
-    <h3 *ngIf="mealData.meals == null">Nothing matches your search. Please try again!</h3>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <div class="col"  *ngFor="let meal of mealData.meals">
-          <div class="card mt-3">
-            <img src="{{meal.strMealThumb}}" class="card-img-top img-fluid">
-            <div style="text-align:center" class="card-body">
-              <h2 class="card-title">{{meal.strMeal}}</h2>
-              <button class="add-button" type="submit" (click)="addMeal(meal.strMeal, 
-                  meal.strCategory, meal.strArea, meal.strMealThumb, meal.strTags, meal.strYoutube, meal.strSource)">Add to Cookbook</button>
-            </div>
-          </div>        
-        </div>
-      </div> 
-</div>
+  <br>
+  <h1>Search for a meal by title!</h1>
 
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" #searchMeal placeholder="Enter meal" aria-label="Find meal">
+        <button (click)="getMealData(searchMeal.value)" class="search-button" type="submit"><span>Search
+          </span></button>
+      </form>
+    </div>
+  </nav>
+  <br>
+  <h3 *ngIf="mealData.meals == null">Nothing matches your search. Please try again!</h3>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col" *ngFor="let meal of mealData.meals">
+      <div class="card mt-3">
+        <img src="{{meal.strMealThumb}}" class="card-img-top img-fluid">
+        <div style="text-align:center" class="card-body">
+          <h2 class="card-title">{{meal.strMeal}}</h2>
+          <button class="add-button" type="submit"
+            (click)="addMeal(meal.strMeal, 
+                  meal.strCategory, meal.strArea, meal.strMealThumb, meal.strTags, meal.strYoutube, meal.strSource)">Add to Cookbook</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

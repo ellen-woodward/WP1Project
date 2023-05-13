@@ -8,30 +8,29 @@ import { OnInit } from '@angular/core';
   templateUrl: './cookbook.component.html',
   styleUrls: ['./cookbook.component.css']
 })
-export class CookbookComponent implements OnInit{
+export class CookbookComponent implements OnInit {
   @Output() mealDeletedEvent = new EventEmitter<string>()
 
   @Input()
-  mealData : IMeal | any;
+  mealData: IMeal | any;
 
-  constructor(private _mealAPIService:MealAPIService){}
+  constructor(private _mealAPIService: MealAPIService) { }
 
   ngOnInit() {
     this.getMeals();
   }
 
-  getMeals(){
-    this._mealAPIService.getCookbookData().subscribe(mealData =>
-      { this.mealData = mealData
+  getMeals() {
+    this._mealAPIService.getCookbookData().subscribe(mealData => {
+      this.mealData = mealData
     });
   }
 
-  deleteMeal(mealID:string) { 
-    this._mealAPIService.deleteMealDetails(mealID).subscribe(result =>
-      { 
-        console.log(result);
-        this.getMeals();
-      });
-      this.mealDeletedEvent.emit("Meal got deleted");
+  deleteMeal(mealID: string) {
+    this._mealAPIService.deleteMealDetails(mealID).subscribe(result => {
+      console.log(result);
+      this.getMeals();
+    });
+    this.mealDeletedEvent.emit("Meal got deleted");
   }
 }

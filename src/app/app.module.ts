@@ -13,10 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CommonModule } from '@angular/common';
 
-const routes:Routes=[
-  { path:'', component:SearchComponent},
-  { path:'about', component:AboutComponent},
-  { path:'cookbook', component:CookbookComponent}
+const routes: Routes = [
+  { path: '', component: SearchComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'cookbook', component: CookbookComponent }
 ]
 
 @NgModule({
