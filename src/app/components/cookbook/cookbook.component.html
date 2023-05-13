@@ -2,22 +2,23 @@
   <br>
   <h1 style="text-align:center">Your Cookbook</h1>
   <h4 *ngIf="mealData.length == 0"><br>Your cookbook is empty!</h4>
-  <button *ngIf="mealData.length != 0" style="margin:10px" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#moreData">See recipe details</button>
+  <button *ngIf="mealData.length != 0" style="margin:10px" class="details-button" data-bs-toggle="collapse"
+    data-bs-target="#moreData"><span>See recipe details</span></button>
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-    <div class="col"  *ngFor="let meal of mealData">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col" *ngFor="let meal of mealData">
       <div class="card mt-3">
         <img src="{{meal.strMealThumb}}" class="card-img-top img-fluid">
         <div style="text-align:center" class="card-body">
           <h2 class="card-title">{{meal.strMeal}}</h2>
-          <button type="button" class="btn btn-light" (click)="deleteMeal(meal._id)">Remove</button>
-            <div id="moreData" class="collapse">
-              <br>
-              <p><b>Tags:</b> {{meal.strCategory}}, {{meal.strTags}}</p>
-              <p><b>Origin:</b> {{meal.strArea}}</p>
-              <p *ngIf="meal.strSource == ''"><b>Recipe:</b> No source found</p>
-              <p *ngIf="meal.strSource != ''"><b>Recipe:</b><a href="{{meal.strSource}}"> {{meal.strSource}}</a></p>
-            </div>
+          <button type="button" class="remove-button" (click)="deleteMeal(meal._id)">Remove</button>
+          <div id="moreData" class="collapse">
+            <br>
+            <p><b>Tags:</b> {{meal.strCategory}}, {{meal.strTags}}</p>
+            <p><b>Origin:</b> {{meal.strArea}}</p>
+            <p *ngIf="meal.strSource == ''"><b>Recipe:</b> No source found</p>
+            <p *ngIf="meal.strSource != ''"><b>Recipe:</b><a href="{{meal.strSource}}"> {{meal.strSource}}</a></p>
+          </div>
         </div>
       </div>
     </div>
