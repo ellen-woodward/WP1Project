@@ -43,7 +43,5 @@ export class SearchComponent implements OnInit{
 
   clearInput(){
     this.searchMeal.nativeElement.value = '';
-    // this.getMealData(this.searchMeal.nativeElement.value);
-    // console.log(this.mealData);
   }
 }

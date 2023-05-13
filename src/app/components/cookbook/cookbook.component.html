@@ -2,7 +2,7 @@
   <br>
   <h1 style="text-align:center">Your Cookbook</h1>
   <h4 *ngIf="mealData.length == 0"><br>Your cookbook is empty!</h4>
-  <button style="margin:10px" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#moreData">See recipe details</button>
+  <button *ngIf="mealData.length != 0" style="margin:10px" class="btn btn-dark" data-bs-toggle="collapse" data-bs-target="#moreData">See recipe details</button>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     <div class="col"  *ngFor="let meal of mealData">
@@ -15,7 +15,8 @@
               <br>
               <p><b>Tags:</b> {{meal.strCategory}}, {{meal.strTags}}</p>
               <p><b>Origin:</b> {{meal.strArea}}</p>
-              <p><b>Recipe:</b><a href="{{meal.strSource}}"> {{meal.strSource}}</a></p>
+              <p *ngIf="meal.strSource == ''"><b>Recipe:</b> No source found</p>
+              <p *ngIf="meal.strSource != ''"><b>Recipe:</b><a href="{{meal.strSource}}"> {{meal.strSource}}</a></p>
             </div>
         </div>
       </div>
